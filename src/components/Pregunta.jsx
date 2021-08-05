@@ -3,7 +3,10 @@ import React, { Fragment, useState } from 'react'
 const Pregunta = () => {
 
    // Definir el state de la cantidad inicial
-   const [cantidad, setCantidad] = useState(0);
+   const [cantidad, setCantidad] = useState('');
+
+   // Definir el state del error para la validacion
+   const [error, setError] = useState(false)
 
    // Funcion que lee el presupuesto
    const definirPresupuesto = (e) => {
@@ -15,13 +18,19 @@ const Pregunta = () => {
       e.preventDefault();
 
       // Validar
-
+      cantidad <= 0 || isNaN(cantidad)
+         ? setError(true)
+         : setError(false) ; setCantidad('')
       // Si pasa la validacion
+
+      console.log(cantidad);
+
    }
 
    return (
       <Fragment>
          <h2>coloca tu presupuesto</h2>
+         {error ? <span></span> : null}
 
          <form
             onSubmit={agregarPresupuesto}
@@ -31,6 +40,7 @@ const Pregunta = () => {
                className="u-full-width"
                placeholder="Definir presupuesto"
                onChange={definirPresupuesto}
+               value={cantidad}
             />
 
             <input
