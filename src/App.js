@@ -19,8 +19,9 @@ function App() {
     <div className="container">
       <header>
         <h1>Control de gastos semanal</h1>
-        <div className="contenido-principal contenido">
-          // Definimos la carga condicional de los componentes
+      </header>
+          <div className="contenido-principal contenido">
+          {/* Definimos la carga condicional de los componentes */}
           {updateComponent === true
             ? (
               <Pregunta 
@@ -41,7 +42,6 @@ function App() {
             )
           }
         </div>
-      </header>
     </div>
   );
 }

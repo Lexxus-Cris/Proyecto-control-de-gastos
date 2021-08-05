@@ -13,7 +13,6 @@ const Form = () => {
 
       // Construir el gasto
 
-
       // Pasar el gasto al componente principal
 
       // resetear el form

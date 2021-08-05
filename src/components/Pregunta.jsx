@@ -23,8 +23,9 @@ const Pregunta = ({guardarPresupuesto, guardarRestante, actualizarComponent}) =>
       cantidad <= 0 || isNaN(cantidad)
          ? setError(true)
          // Si pasa la validacion
-         : setError(false) ; setCantidad('')
+         : setError(false)
 
+      // LLamado a las funciones externas
       guardarRestante(cantidad)
       guardarPresupuesto(cantidad);
       actualizarComponent(false)
@@ -32,7 +33,7 @@ const Pregunta = ({guardarPresupuesto, guardarRestante, actualizarComponent}) =>
 
    return (
       <Fragment>
-         <h2>coloca tu presupuesto</h2>
+         <h2>Coloca tu presupuesto</h2>
          {error ? <Error message="El presupuesto es Incorrecto" /> : null}
 
          <form
