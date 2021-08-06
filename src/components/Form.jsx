@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 import Error from './Error';
 
@@ -6,7 +7,7 @@ const Form = () => {
 
    const [gastoName, setGastoName] = useState('');
 
-   const [cantidad, setCantidad] = useState(0);
+   const [cantidad, setCantidad] = useState('');
 
    const [error, setError] = useState(false);
 
@@ -14,17 +15,24 @@ const Form = () => {
       e.preventDefault()
 
       // Validar 
-      if (cantidad < 1 || isNaN(cantidad) || gastoName.trim() === '' ) {
+      if (cantidad < 1 || gastoName.trim() === '' ) {
          setError(true);
          return;
       }
 
       setError(false)
-      // Construir el gasto
-
+         // Construir el gasto
+      const gasto = {
+         gastoName,
+         cantidad,
+         id: nanoid()
+      }
+      console.log(gasto);
       // Pasar el gasto al componente principal
 
       // resetear el form
+      setGastoName('')
+      setCantidad('')
    }
 
    return (
