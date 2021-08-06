@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
+import Error from './Error';
 
 const Form = () => {
 
@@ -6,11 +8,18 @@ const Form = () => {
 
    const [cantidad, setCantidad] = useState(0);
 
+   const [error, setError] = useState(false);
+
    const agregarGasto = e => {
       e.preventDefault()
 
       // Validar 
+      if (cantidad < 1 || isNaN(cantidad) || gastoName.trim() === '' ) {
+         setError(true);
+         return;
+      }
 
+      setError(false)
       // Construir el gasto
 
       // Pasar el gasto al componente principal
@@ -23,7 +32,10 @@ const Form = () => {
          onSubmit={agregarGasto}
       >
          <h2>Agrega tus gastos</h2>
-
+         {error === true 
+            ? <Error message="Ambos campos son obligatorios o Presupuesto incorrecto" />
+            : null
+         }
          <div className="campo">
             <label>Nombre del gasto</label>
             <input

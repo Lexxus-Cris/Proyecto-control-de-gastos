@@ -20,11 +20,13 @@ const Pregunta = ({guardarPresupuesto, guardarRestante, actualizarComponent}) =>
       e.preventDefault();
 
       // Validar
-      cantidad <= 0 || isNaN(cantidad)
-         ? setError(true)
-         // Si pasa la validacion
-         : setError(false)
-
+      if (cantidad <= 0 || isNaN(cantidad)) {
+         setError(true)
+         return;
+      }
+      // Si pasa la validacion
+         
+      setError(false); 
       // LLamado a las funciones externas
       guardarRestante(cantidad)
       guardarPresupuesto(cantidad);
