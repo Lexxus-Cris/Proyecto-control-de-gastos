@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import Pregunta from "./components/Pregunta";
 import Form from './components/Form';
+import ListaGastos from './components/ListaGastos';
 
 function App() {
 
@@ -48,7 +49,9 @@ function App() {
                   />
                 </div>
                 <div className="one-half column">
-                  2
+                  <ListaGastos 
+                    gastos={gastos}
+                  />
                 </div>
               </div>
             )
