@@ -12,8 +12,18 @@ function App() {
   const [restante, setRestante] = useState(0)
 
   //  Definicion de un nuevo state para mostrar componentes de forma condicional
-
   const [updateComponent, setUpdateComponent] = useState(true);
+
+  // State para el listado de gastos
+  const [gastos, setGastos] = useState([])
+
+  // Agregar los gastos al state
+  const agregarGasto = (gasto) => {
+    setGastos([
+      ...gastos,
+      gasto
+    ])
+  }
 
   return (
     <div className="container">
@@ -33,7 +43,9 @@ function App() {
             : (
               <div className="row">
                 <div className="one-half column">
-                  <Form />
+                  <Form
+                    agregarGasto={agregarGasto}
+                  />
                 </div>
                 <div className="one-half column">
                   2

@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 
 import Error from './Error';
 
-const Form = () => {
+const Form = ({agregarGasto}) => {
 
    const [gastoName, setGastoName] = useState('');
 
@@ -11,7 +11,7 @@ const Form = () => {
 
    const [error, setError] = useState(false);
 
-   const agregarGasto = e => {
+   const crearGasto = e => {
       e.preventDefault()
 
       // Validar 
@@ -27,9 +27,8 @@ const Form = () => {
          cantidad,
          id: nanoid()
       }
-      console.log(gasto);
       // Pasar el gasto al componente principal
-
+      agregarGasto(gasto)
       // resetear el form
       setGastoName('')
       setCantidad('')
@@ -37,7 +36,7 @@ const Form = () => {
 
    return (
       <form
-         onSubmit={agregarGasto}
+         onSubmit={crearGasto}
       >
          <h2>Agrega tus gastos</h2>
          {error === true 
