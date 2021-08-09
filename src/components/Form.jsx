@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 
 import Error from './Error';
 
-const Form = ({agregarGasto}) => {
+const Form = ({guardarGasto, hacerGasto}) => {
 
    const [gastoName, setGastoName] = useState('');
 
@@ -28,10 +28,11 @@ const Form = ({agregarGasto}) => {
          id: nanoid()
       }
       // Pasar el gasto al componente principal
-      agregarGasto(gasto)
+      guardarGasto(gasto);
+      hacerGasto(true);
       // resetear el form
-      setGastoName('')
-      setCantidad('')
+      setGastoName('');
+      setCantidad('');
    }
 
    return (
