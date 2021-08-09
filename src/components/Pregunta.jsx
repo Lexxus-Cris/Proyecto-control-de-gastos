@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Error from './Error';
 
@@ -57,6 +58,12 @@ const Pregunta = ({guardarPresupuesto, guardarRestante, actualizarComponent}) =>
          </form>
       </Fragment>
    )
+}
+
+Pregunta.propTypes = {
+   guardarPresupuesto: PropTypes.func.isRequired, 
+   guardarRestante: PropTypes.func.isRequired,
+   actualizarComponent: PropTypes.func.isRequired
 }
 
 export default Pregunta

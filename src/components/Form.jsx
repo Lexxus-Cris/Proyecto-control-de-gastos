@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 import Error from './Error';
 
@@ -71,4 +72,8 @@ const Form = ({guardarGasto, hacerGasto}) => {
    )
 }
 
+Form.propTypes = {
+   guardarGasto: PropTypes.func.isRequired,
+   hacerGasto: PropTypes.func.isRequired
+}
 export default Form;
